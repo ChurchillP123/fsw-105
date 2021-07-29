@@ -120,7 +120,8 @@ function isDefeated(attacker, attacked) {
             attacked.changeLocation(10, 10); //out of bounds
 
             enemy = new Enemy();
-        } else if (attacked.HP <= 0 && Enemy.enemies.length == 0) {
+        } 
+         if (attacked.HP <= 0 && Enemy.enemies.length == 0) {
             console.log('You defeated all the Dark Monsters in the Dark Forest. Congratulations!');
             console.log(attacker.printInventory());
             attacked.changeLocation(10, 10);
@@ -143,7 +144,8 @@ function isDefeated(attacker, attacked) {
 const player = new Player(name);
 
 
-while (player.HP > 0) {
+
+while (player.HP > 0 && Enemy.enemies.length > 0) {
     let enemy = new Enemy();
     const option = readline.keyIn('Press [p] to Print Stats \nPress [w] to Walk \nPress [x] to Exit ', {limit: '<p, w, x>'});
     switch(option) {
@@ -169,15 +171,3 @@ while (player.HP > 0) {
             break;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
